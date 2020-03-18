@@ -14,14 +14,28 @@ const userSchema = new Schema({
     // couponCode : {
     //     type : String
     // },
-    coupon : 
-    voucher_codes.generate({
-        length: 8,
-        count: 1,
-        charset : voucher_codes.charset("alphanumeric")
-    })
+    coupon : {
+        type : String
+    }
+    
 })
 
+// userSchema.post('save', async function (next) {
+//     try {
+//         let user = this
+//             const couponCode = await voucher_codes.generate({
+//                 length: 6,
+//                 count: 1,
+//                 charset : voucher_codes.charset("alphanumeric")
+//             })
+//             console.log("Blah blah", user)
+//             user.coupon = couponCode
+//             console.log("Coupon", couponCode)
+//             next();
+//     } catch (error) {
+//         throw newError(error)
+//     }
+// })
 
 const User = mongoose.model('User', userSchema)
 
